@@ -1,0 +1,14 @@
+[Unit]
+Description=Create Virtual MIDI Port
+After=alsa-restore.service
+Requires=alsa-restore.service
+
+[Service]
+Type=oneshot
+ExecStart=/sbin/modprobe snd-virmidi midi_devs=1
+RemainAfterExit=yes
+StandardOutput=file:/var/log/pianobox/virtual-midi.service.log
+StandardError=file:/var/log/pianobox/virtual-midi.service.error.log
+
+[Install]
+WantedBy=multi-user.target

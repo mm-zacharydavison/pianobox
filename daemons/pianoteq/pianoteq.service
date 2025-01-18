@@ -1,0 +1,25 @@
+[Unit]
+After=jack.service network-online.target
+Wants=jack.service
+
+[Service]
+User=patch
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/patch/.Xauthority
+Environment=XDG_RUNTIME_DIR=/run/user/1000
+Environment=DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+Environment=JACK_PROMISCUOUS_SERVER=jack
+ExecStart=/home/patch/pianobox/daemons/pianoteq/start_pianoteq_and_wait.sh
+Restart=always
+RestartSec=2s
+KillMode=control-group
+TimeoutSec=infinity
+StandardOutput=journal
+StandardError=journal
+LimitMEMLOCK=infinity
+LimitRTPRIO=90
+LimitNICE=-10
+Nice=-10
+
+[Install]
+WantedBy=graphical.target
