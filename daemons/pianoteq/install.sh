@@ -14,6 +14,7 @@ fi
 START_PIANOTEQ_SCRIPT="/home/patch/pianobox/daemons/pianoteq/start_pianoteq"
 if [ ! -f "$START_PIANOTEQ_SCRIPT" ]; then
     echo "  --> start_pianoteq script not found. Please enter the absolute path of your Pianoteq executable:"
+    echo "! --> If you haven't followed the 'Pianoteq GUI Setup' steps in the README.md, do it now before continuing.'
     read PIANOTEQ_EXECUTABLE
     echo "#!/bin/bash" > "$START_PIANOTEQ_SCRIPT"
     echo "$PIANOTEQ_EXECUTABLE" >> "$START_PIANOTEQ_SCRIPT"
