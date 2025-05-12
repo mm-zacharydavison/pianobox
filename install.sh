@@ -2,8 +2,9 @@ echo '    --> Checking for Pianoteq installation...'
 ./daemons/pianoteq/install.sh
 
 echo '    --> Installing python requirements...'
+sudo apt install python3-pip
 # We want the requirements installed into system python, because pisound will be using them too.
-pip install -r requirements.txt --break-system-packages
+sudo python -m pip install -r requirements.txt --break-system-packages
 
 echo '    --> Setting up LED permissions...'
 ./leds/install.sh

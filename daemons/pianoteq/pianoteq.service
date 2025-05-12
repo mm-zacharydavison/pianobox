@@ -9,6 +9,8 @@ Environment=XAUTHORITY=/home/patch/.Xauthority
 Environment=XDG_RUNTIME_DIR=/run/user/1000
 Environment=DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
 Environment=JACK_PROMISCUOUS_SERVER=jack
+StandardOutput=file:/var/log/pianobox/pianoteq.service.log
+StandardError=file:/var/log/pianobox/pianoteq.service.error.log
 ExecStart=/home/patch/pianobox/daemons/pianoteq/start_pianoteq_and_wait.sh
 Restart=always
 RestartSec=2s
